@@ -13,9 +13,9 @@ app.use(cors())
 app.post('/signup', async (req, res) => {
   
   try {
-    const { ggToken, email, name } = req.body;
-    const mail = email.toLowerCase()
-    const userId = mail.split('@',1).join()
+    const { ggToken, email, name, id } = req.body;
+    const mail = email
+    const userId = id
     const client = connect("tjrf7ngdzv5g", "57jbfp2gns73eta2en4h947tfwbk7fjnqjkbmsay9e4as5w22az5cpgjsafs84z2", "1215059")
     const timestamp = Math.floor(Date.now() / 1000) + (60 * 60)
     const token = client.createUserToken(userId,timestamp)
